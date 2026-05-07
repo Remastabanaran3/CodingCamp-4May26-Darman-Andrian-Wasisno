@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="To-Do List Life Dashboard — organize your day with time, tasks, focus timer, and quick links." />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== TOP BAR ===== -->
+  <header class="topbar">
+    <div class="topbar__brand">📋 Life Dashboard</div>
+    <button id="theme-toggle" class="btn btn--icon" aria-label="Toggle light/dark mode" title="Toggle theme">
+      <span id="theme-icon">🌙</span>
+    </button>
+  </header>
+
+  <!-- ===== MAIN LAYOUT ===== -->
+  <main class="dashboard">
+
+    <!-- ===== HERO: Time, Date & Greeting ===== -->
+    <section class="card hero" aria-label="Time and greeting">
+      <div class="hero__time-block">
+        <p id="time-display" class="hero__time" aria-live="polite" aria-atomic="true">--:--:-- --</p>
+        <p id="date-display" class="hero__date">--, -- --</p>
+      </div>
+      <div class="hero__greeting-block">
+        <h1 id="greeting-text" class="hero__greeting">Good Day</h1>
+        <div class="hero__name-form">
+          <label for="username-input" class="sr-only">Your name</label>
+          <input
+            id="username-input"
+            type="text"
+            class="input"
+            placeholder="Enter your name…"
+            maxlength="40"
+            aria-label="Enter your name for the greeting"
+          />
+          <button id="username-save" class="btn btn--primary">Save</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOCUS TIMER ===== -->
+    <section class="card timer" aria-label="Focus timer">
+      <h2 class="card__title">🍅 Focus Timer</h2>
+
+      <p id="timer-display" class="timer__display" aria-live="polite" aria-atomic="true">25:00</p>
+
+      <div id="timer-notification" class="timer__notification" role="alert" aria-live="assertive" hidden>
+        ✅ Session complete! Take a break.
+      </div>
+
+      <div class="timer__controls">
+        <button id="timer-start" class="btn btn--success">▶ Start</button>
+        <button id="timer-stop"  class="btn btn--warning">⏸ Stop</button>
+        <button id="timer-reset" class="btn btn--danger">↺ Reset</button>
+      </div>
+
+      <div class="timer__duration-form">
+        <label for="timer-duration-input" class="label">Custom duration (1–60 min):</label>
+        <div class="timer__duration-row">
+          <input
+            id="timer-duration-input"
+            type="number"
+            class="input input--small"
+            min="1"
+            max="60"
+            placeholder="25"
+            aria-label="Set custom Pomodoro duration in minutes"
+          />
+          <button id="timer-duration-save" class="btn btn--secondary">Set</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TO-DO LIST ===== -->
+    <section class="card tasks" aria-label="To-do list">
+      <h2 class="card__title">✅ To-Do List</h2>
+
+      <form id="task-form" class="task-form" aria-label="Add new task">
+        <label for="task-input" class="sr-only">New task</label>
+        <input
+          id="task-input"
+          type="text"
+          class="input"
+          placeholder="Add a new task…"
+          maxlength="200"
+          aria-label="New task description"
+        />
+        <button type="submit" class="btn btn--primary">Add</button>
+      </form>
+
+      <ul id="task-list" class="task-list" aria-label="Task list" aria-live="polite">
+        <!-- Tasks rendered by JS -->
+      </ul>
+    </section>
+
+    <!-- ===== QUICK LINKS ===== -->
+    <section class="card links" aria-label="Quick links">
+      <h2 class="card__title">🔗 Quick Links</h2>
+
+      <form id="link-form" class="link-form" aria-label="Add new quick link">
+        <label for="link-name-input" class="sr-only">Link name</label>
+        <input
+          id="link-name-input"
+          type="text"
+          class="input"
+          placeholder="Site name…"
+          maxlength="60"
+          aria-label="Website name"
+        />
+        <label for="link-url-input" class="sr-only">Link URL</label>
+        <input
+          id="link-url-input"
+          type="text"
+          class="input"
+          placeholder="https://example.com"
+          maxlength="500"
+          aria-label="Website URL"
+        />
+        <button type="submit" class="btn btn--primary">Add</button>
+      </form>
+
+      <ul id="links-list" class="links-list" aria-label="Quick links list" aria-live="polite">
+        <!-- Links rendered by JS -->
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Life Dasboard using a vanilla HTML, CSS & JS</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
